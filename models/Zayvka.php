@@ -83,6 +83,19 @@ class Zayvka extends \yii\db\ActiveRecord
             case 2: return'Принято';
         }
     }
+
+       public function good()
+    {
+    	$this->status=2;
+    	return $this->save(false);
+    }
+
+    public function verybad()
+    {
+    	$this->status=1;
+    	return $this->save(false);
+    }
+    
     public function getUser()
     {
         return $this->hasOne(User::class, ['id' => 'user_id']);
